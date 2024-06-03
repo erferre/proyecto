@@ -17,10 +17,4 @@ pipeline {
       }
     }
   }
-  post {
-    always {
-      agent { label 'Docker Node V2' }
-      sh 'sudo docker logout'
-    }
-  }
 }
