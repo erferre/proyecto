@@ -16,5 +16,12 @@ pipeline {
         sh 'sudo docker push jmferreiradk/kube-test'
       }
     }
+    stage('Deploying React.js container to Kubernetes') {
+      steps {
+        script {
+          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+        }
+      }
+    }
   }
 }
